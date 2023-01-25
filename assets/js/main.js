@@ -37,17 +37,17 @@ function relogio() {
     
   }
 
-  iniciar.addEventListener('click', function (event) {timerIniciar(); iniciar.disabled = true; pausar.disabled = false;
-    zerar.disabled = false;});
+  document.addEventListener('click', function(e){
+    const el = e.target;
 
-  pausar.addEventListener('click', function (event) {pausarCronometro(); iniciar.disabled = false; pausar.disabled = true;
-    zerar.disabled = false;});
-
-  zerar.addEventListener('click', function (event) {zerarCronometro(); iniciar.disabled = false; pausar.disabled = true;
-    zerar.disabled = true;})
-
+    if(el.classList.contains('iniciar')){timerIniciar(); iniciar.disabled = true; pausar.disabled = false;
+      zerar.disabled = false;}
+    if(el.classList.contains('pausar')){pausarCronometro(); iniciar.disabled = false; pausar.disabled = true;
+      zerar.disabled = false;}
+    if(el.classList.contains('zerar')){zerarCronometro(); iniciar.disabled = false; pausar.disabled = true;
+      zerar.disabled = true;}
+  })
   
- 
 }
 
 relogio()
